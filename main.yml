@@ -1,6 +1,14 @@
 - hosts: vns
   tasks:
- 
+
+    - name: Run ls to test connection and ability
+      shell: cat /var/named/chroot/etc/named.forwards 
+      register: named_forwards
+
+    - debug: msg="{{ named_forwards.stdout }}"
+
+    - debug: msg="{{ named_forwards.stderr }}"
+
  #     - name: Register a variable
  #       ansible.builtin.shell: cat /var/named/chroot/etc/named.forwards
  #       register: named.forwards_contents
