@@ -1,0 +1,15 @@
+- hosts: vns
+  tasks:
+
+  - template:
+      src: vns/named.forwards
+      dest: /var/named/chroot/etc/named.forwards
+      owner: root
+      group: named
+      mode: 0664
+    when: ansible_distribution in ['RedHat', 'CentOS'] and ansible_distribution_major_version == '6'
+
+  handlers:
+    - name: restart named.service
+      service: name=named.service state=restarted
+

@@ -1,0 +1,62 @@
+#
+# Forward zone configuration
+#
+
+# Zones of Neustar Australia a.k.a Bombora
+zone "arsrs.local" {
+        type forward;
+        forward only;
+        forwarders {10.30.220.11; 10.11.100.10; 10.12.100.10;};
+};
+zone "vic.ausregistry.com.au" {
+        type forward;
+        forward only;
+        forwarders {10.30.220.11; 10.11.100.10; 10.12.100.10;};
+};
+zone "ausregistrygroup.local" {
+        type forward;
+        forward only;
+        forwarders {10.30.220.11; 10.11.100.10; 10.12.100.10;};
+};
+
+# Market Share
+zone "msp.lan" {
+        type forward;
+        forward only;
+        forwarders {192.168.70.4; 192.168.70.203;};
+};
+
+# Aggregate Knowledge a.k.a AGKN
+zone "agkn.net" {
+        type forward;
+        forward only;
+        forwarders {172.25.54.4; 172.25.55.4;};
+};
+
+# REQ0163693
+zone "windstream.com" {
+        type forward;
+        forward only;
+        forwarders {156.154.70.1; 156.154.70.2;};
+};
+
+# ENTERPRISE APPLICATION TEAM
+zone "amacaicr.com" {
+        type forward;
+        forward only;
+        forwarders {10.96.116.51; 10.96.113.52;};
+};
+
+# STERLING IOT LAB DOMAIN
+zone "convergedlab.biz" {
+        type forward;
+        forward only;
+        forwarders {156.154.19.109;};
+};
+
+# OREM AMACAI
+zone "amacai.com" {
+        type forward;
+        forward only;
+        forwarders {10.56.89.100; 10.56.89.101;};
+};
