@@ -27,11 +27,11 @@
 
   
     - template:
-      src: vns/named.forwards
-      dest: /var/named/chroot/etc/named.forwards
-      owner: root
-      group: named
-      mode: 0664
+        src: vns/named.forwards
+        dest: /var/named/chroot/etc/named.forwards
+        owner: root
+        group: named
+        mode: 0664
   #  when: named.forwards_contents.stdout != vns.named.forwards_contents.stdout
 
   #handlers:
