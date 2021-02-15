@@ -4,11 +4,11 @@
     - name: Run ls to test connection and ability
 #     shell: ls -latr /tmp 
       shell: sudo cat /var/named/chroot/etc/named.forwards 
-      register: lsout
+      register: named_fowards
 
-    - debug: msg="{{ lsout.stdout }}"
+    - debug: msg="{{ named_fowards.stdout }}"
 
-    - debug: msg="{{ lsout.stderr }}"
+    - debug: msg="{{ named_fowards.stderr }}"
 #    - name: Run ls to test connection and ability
 #      shell: sudo cat /var/named/chroot/etc/named.forwards 
 #      register: named_forwards
