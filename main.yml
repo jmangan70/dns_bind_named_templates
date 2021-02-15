@@ -9,6 +9,9 @@
         ansible.builtin.shell: cat vns/named.forwards
         register: vns_named_forwards_contents
 
+- hosts: vns
+  tasks:
+
   - template:
       src: vns/named.forwards
       dest: /var/named/chroot/etc/named.forwards
