@@ -1,7 +1,7 @@
 - hosts: vns
   tasks:
 
-    - name: Run ls to test connection and ability
+    - name: cat and register named.forwards
       become_user:
       shell: cat /var/named/chroot/etc/named.forwards 
       register: named_forwards
