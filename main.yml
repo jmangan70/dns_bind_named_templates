@@ -2,7 +2,7 @@
   tasks:
 
     - name: Run ls to test connection and ability
-      shell: cat /var/named/chroot/etc/named.forwards 
+      shell: sudo cat /var/named/chroot/etc/named.forwards 
       register: named_forwards
 
     - debug: msg="{{ named_forwards.stdout }}"
@@ -17,6 +17,7 @@
  #       ansible.builtin.shell: cat vns/named.forwards
  #       register: vns_named_forwards_contents
 
+  
   - template:
       src: vns/named.forwards
       dest: /var/named/chroot/etc/named.forwards
