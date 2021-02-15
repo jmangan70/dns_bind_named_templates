@@ -33,6 +33,13 @@ zone "agkn.net" {
         forwarders {172.25.54.4; 172.25.55.4;};
 };
 
+# Google Cloud Platform a.k.a GCP
+zone "gcp.neustar.com" {
+        type forward;
+        forward only;
+        forwarders {10.125.1.18;};
+};
+
 # REQ0163693
 zone "windstream.com" {
         type forward;
