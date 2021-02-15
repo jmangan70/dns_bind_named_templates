@@ -15,7 +15,7 @@
         owner: root
         group: named
         mode: 0664
-      when: named_forwards.stdout.changed
+      when: named_forwards.changed
 
   handlers:
     - name: restart named.service
