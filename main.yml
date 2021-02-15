@@ -3,11 +3,12 @@
 
     - name: Run ls to test connection and ability
       shell: sudo cat /var/named/chroot/etc/named.forwards 
-      register: named_fowards
+      register: named_forwards
 
-#    - debug: msg="{{ named_fowards.stdout }}"
+#    - debug: msg="{{ named_forwards.stdout }}"
 
-#    - debug: msg="{{ named_fowards.stderr }}"
+#    - debug: msg="{{ named_forwards.stderr }}"
+
 #    - name: Run ls to test connection and ability
 #      shell: sudo cat /var/named/chroot/etc/named.forwards 
 #      register: named_forwards
@@ -31,7 +32,7 @@
         owner: root
         group: named
         mode: 0664
-    when: named_fowards.changed
+    when: named_forwards.stdout.changed
 
   handlers:
     - name: restart named.service
