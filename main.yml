@@ -16,11 +16,14 @@
         owner: root
         group: named
         mode: 0664
-      when: named_forwards.changed
+      notify: Restart named
+#      when: named_forwards.changed
 
   handlers:
-    - name: restart named.service
-#      service: name=named.service state=restarted
-      become_user:
-      shell: /bin/systemctl restart named.service
+    - name: Restart named
+      service:
+        name: named.service
+        state: restarted
+#      become_user:
+#      shell: /bin/systemctl restart named.service
 
