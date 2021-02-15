@@ -1,4 +1,4 @@
-- hosts: vns
+- hosts: if_vns
   tasks:
 
 #    - name: cat and register named.forwards
