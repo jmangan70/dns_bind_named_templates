@@ -5,9 +5,9 @@
     ansible.builtin.shell: cat /var/named/chroot/etc/named.forwards
     register: named.forwards_contents
 
-  - name: Register a variable
-    ansible.builtin.shell: cat vns/named.forwards
-    register: vns.named.forwards_contents
+ # - name: Register a variable
+ #   ansible.builtin.shell: cat vns/named.forwards
+ #   register: vns.named.forwards_contents
 
   - template:
       src: vns/named.forwards
@@ -15,9 +15,9 @@
       owner: root
       group: named
       mode: 0664
-    when: named.forwards_contents.stdout != vns.named.forwards_contents.stdout
+  #  when: named.forwards_contents.stdout != vns.named.forwards_contents.stdout
 
-  handlers:
-    - name: restart named.service
-      service: name=named.service state=restarted
+  #handlers:
+  #  - name: restart named.service
+  #    service: name=named.service state=restarted
 
