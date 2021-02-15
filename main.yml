@@ -1,16 +1,13 @@
 - hosts: vns
   tasks:
  
- # - name: Register a variable
- #   ansible.builtin.shell: cat /var/named/chroot/etc/named.forwards
- #   register: named.forwards_contents
+  - name: Register a variable
+    ansible.builtin.shell: cat /var/named/chroot/etc/named.forwards
+    register: named.forwards_contents
 
-      - name: Register a variable
-        ansible.builtin.shell: cat vns/named.forwards
-        register: vns_named_forwards_contents
-
-- hosts: vns
-  tasks:
+ #     - name: Register a variable
+ #       ansible.builtin.shell: cat vns/named.forwards
+ #       register: vns_named_forwards_contents
 
   - template:
       src: vns/named.forwards
