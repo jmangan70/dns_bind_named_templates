@@ -20,5 +20,7 @@
 
   handlers:
     - name: restart named.service
-      service: name=named.service state=restarted
+#      service: name=named.service state=restarted
+      become_user:
+        shell: /bin/systemctl restart named.service
 
