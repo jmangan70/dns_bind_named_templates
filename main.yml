@@ -1,29 +1,77 @@
 - hosts: vns
   tasks:
 
-    - name: cat and register named.forwards
-      become_user:
-      shell: cat /var/named/chroot/etc/named.forwards 
-      register: named_forwards
+#    - name: cat and register named.forwards
+#      become_user:
+#      shell: cat /var/named/chroot/etc/named.forwards 
+#      register: named_forwards
 
 #    - debug: msg="{{ named_forwards.stdout }}"
 
 #    - debug: msg="{{ named_forwards.stderr }}"
   
     - template:
-        src: vns/named.forwards
+        src: if_vns/named.forwards
         dest: /var/named/chroot/etc/named.forwards
         owner: root
         group: named
         mode: 0664
-      notify: Restart named
-#      when: named_forwards.changed
+      notify: Restart Service
 
   handlers:
-    - name: Restart named
+    - name: Restart Service
       service:
         name: named.service
         state: restarted
-#      become_user:
-#      shell: /bin/systemctl restart named.service
 
+- hosts: if_vlns
+  tasks:
+
+#    - name: cat and register named.conf
+#      become_user:
+#      shell: cat /var/named/chroot/etc/named.conf 
+#      register: named_conf
+
+#    - debug: msg="{{ named_conf.stdout }}"
+
+#    - debug: msg="{{ named_conf.stderr }}"
+  
+    - template:
+        src: if_vlns/named.conf
+        dest: /var/named/chroot/etc/named.conf
+        owner: root
+        group: named
+        mode: 0664
+      notify: Restart Service
+
+  handlers:
+    - name: Restart Service
+      service:
+        name: named.service
+        state: restarted
+
+- hosts: ih_vns
+  tasks:
+
+#    - name: cat and register named.forward
+#      become_user:
+#      shell: cat /var/named/chroot/etc/named.forward 
+#      register: named_forward
+
+#    - debug: msg="{{ named_forward.stdout }}"
+
+#    - debug: msg="{{ named_forward.stderr }}"
+  
+    - template:
+        src: ih_vns/named.forward
+        dest: /var/named/chroot/etc/named.forward
+        owner: root
+        group: named
+        mode: 0664
+      notify: Restart Service
+
+  handlers:
+    - name: Restart Service
+      service:
+        name: named.service
+        state: restarted     
